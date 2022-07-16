@@ -6,9 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>844</width>
+    <width>882</width>
     <height>600</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>0</width>
+    <height>500</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -58,7 +76,7 @@ border : 1px solid rgb(11, 39, 33)
 }
 #Professeurs,#Inspecteurs,#DirEcole,#DirEtude
 {
-background-color:rgb(240, 240, 240)
+background-color:rgb(30, 30, 30)
 }
 QTabWidget QLineEdit
 {
@@ -68,22 +86,123 @@ padding:3px;
 }
 #searchInspectBtn,#searchProfBtn
 {
-background:rgb(3, 12, 10);
+background:rgb(30, 30, 30);
 border-radius:15px;
 }
 #searchInspectBtn:hover,#searchProfBtn:hover
 {
-background-color:rgb(254, 92, 24);
+background-color:rgb(11, 39, 33);
 }
 #frame_7,#frame_18
 {
-background:rgba(7, 25, 21);
+background:rgba(30, 30, 30);
 padding: 2px 5px;
-border-radius : 8px
+border-radius : 8px;
 }
-QHeaderView
+
+QScrollBar:horizontal
 {
-background:rgb(11, 39, 33)
+border:0;
+background-color:rgb(254, 92, 24);
+height:15px;
+margin:0 40px 0 0
+}
+QScrollBar::handle:horizontal{
+background:gray;
+min-width:20px
+}
+QScrollBar::add-line:horizontal{
+background:blue;
+width:16px;
+subcontrol-position: right;
+subcontrol-origin: margin;
+border:2px solid black;
+}
+QScrollBar::sub-line:horizontal{
+background:magenta;
+width:16px;
+subcontrol-position:top right;
+subcontrol-origin:margin;
+border: 2px solid rgb(11, 39, 33);  
+position: absolute;
+right:20px
+}
+QScrollBar::left-arrow:horizontal,QScrollBar::right-arrow:horizontal{
+width:3px;
+height:3px;
+background:pink;
+}
+QScrollBar::add-page:horizontal,QScrollBar::sub-page:horizontal{
+background:none
+}
+QTabWidget::pane{
+border-top:2px solid rgb(254, 92, 24)
+}
+QTabWidget::tab-bar{
+left:5px
+}
+QTabBar::tab{
+background:rgba(254, 92, 24,0.4856);
+border: 0.5px solid #C4C4C3;
+border-bottom-color:#C2C7CB;
+min-width:8px;
+padding:8px;
+color : #fefefe;
+border-top-left-radius :8px;
+border-top-right-radius: 8px;
+}
+QTabBar::tab:selected,QTabBar::tab:hover{
+background:rgb(254, 92, 24)
+}
+QTabBar::tab:selected
+{
+border-bottom-color:rgb(254, 92, 24)
+}
+QTabBar::tab:!selected{
+margin-top:2px
+}
+QTabBar::tab:selected
+{
+margin-left:-4px;
+margin-right:-4px
+}
+QTabBar::tab:first:selected
+{
+margin-left:0;
+}
+QTabBar::tab:last:selected
+{
+margin-right:0;
+}
+QTabBar::tab:only-one
+{
+margin:0;
+}
+#frame_4
+{
+background:rgb(60, 60, 60)
+}
+
+#inspectInfo QPushButton,#profInfo QPushButton,#dirEcoleInfo QPushButton,#dirEtudeInfo QPushButton
+{
+color:#fefefe;
+padding : 10px;
+background:rgb(254, 92, 24);
+margin-left : 10px;
+margin-right : 10px;
+border-radius : 10px;
+}
+#subinfo1,#subinfo2,#subinfo3,#subinfo4
+{
+background:#fefefe;
+padding: 0 10px;
+border-radius: 10px
+}
+#mailInspect,#mailDirEcole,#mailDirEtude,#mailProf
+{
+background:#fefefe;
+padding: 0 15px;
+border-radius:10px
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -179,6 +298,12 @@ background:rgb(11, 39, 33)
        </item>
        <item>
         <widget class="QPushButton" name="compteBtn">
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>Mon compte</string>
+         </property>
          <property name="text">
           <string/>
          </property>
@@ -206,18 +331,6 @@ background:rgb(11, 39, 33)
           </size>
          </property>
         </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="username">
-         <property name="font">
-          <font>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>username</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
@@ -314,6 +427,12 @@ background:rgb(11, 39, 33)
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Créer un compte professeur</string>
+            </property>
             <property name="text">
              <string>professeur</string>
             </property>
@@ -325,6 +444,12 @@ background:rgb(11, 39, 33)
              <font>
               <pointsize>12</pointsize>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Créer un compte inspecteur</string>
             </property>
             <property name="text">
              <string>Inspecteur</string>
@@ -338,6 +463,12 @@ background:rgb(11, 39, 33)
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Créerun compte DE</string>
+            </property>
             <property name="text">
              <string>Directeur des études</string>
             </property>
@@ -349,6 +480,12 @@ background:rgb(11, 39, 33)
              <font>
               <pointsize>12</pointsize>
              </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Créer un compte directeur</string>
             </property>
             <property name="text">
              <string>Directeur de l'école</string>
@@ -460,7 +597,7 @@ background:rgb(11, 39, 33)
                    <bool>false</bool>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>3</number>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -682,7 +819,7 @@ background:rgb(11, 39, 33)
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_5">
                           <property name="spacing">
-                           <number>0</number>
+                           <number>2</number>
                           </property>
                           <property name="leftMargin">
                            <number>0</number>
@@ -749,7 +886,7 @@ background:rgb(11, 39, 33)
                         </widget>
                        </item>
                        <item>
-                        <widget class="QFrame" name="frame_10">
+                        <widget class="QFrame" name="subinfo1">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -788,8 +925,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
                                <property name="text">
-                                <string>Nom et préno(s) :</string>
+                                <string>Nom et prénom(s) </string>
                                </property>
                               </widget>
                              </item>
@@ -816,13 +956,16 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_23">
+                            <layout class="QVBoxLayout" name="verticalLayout_32">
                              <item>
                               <widget class="QLabel" name="label_31">
                                <property name="font">
                                 <font>
                                  <pointsize>12</pointsize>
                                 </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
                                </property>
                                <property name="text">
                                 <string>Sexe</string>
@@ -852,7 +995,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_21">
+                            <layout class="QVBoxLayout" name="verticalLayout_33">
                              <item>
                               <widget class="QLabel" name="label_35">
                                <property name="font">
@@ -860,8 +1003,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
                                <property name="text">
-                                <string>Tel :</string>
+                                <string>Tel </string>
                                </property>
                               </widget>
                              </item>
@@ -888,7 +1034,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_22">
+                            <layout class="QVBoxLayout" name="verticalLayout_34">
                              <item>
                               <widget class="QLabel" name="label_33">
                                <property name="font">
@@ -896,8 +1042,12 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)
+</string>
+                               </property>
                                <property name="text">
-                                <string>Filière :</string>
+                                <string>Filière </string>
                                </property>
                               </widget>
                              </item>
@@ -925,6 +1075,290 @@ background:rgb(11, 39, 33)
                           <font>
                            <pointsize>12</pointsize>
                           </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="text">
+                          <string>Modifier</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                  <widget class="QWidget" name="DirEcole">
+                   <attribute name="title">
+                    <string>Directeur de l'école</string>
+                   </attribute>
+                   <layout class="QHBoxLayout" name="horizontalLayout_11">
+                    <item alignment="Qt::AlignTop">
+                     <widget class="QFrame" name="dirEcoleInfo">
+                      <property name="minimumSize">
+                       <size>
+                        <width>300</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>300</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_13">
+                       <property name="spacing">
+                        <number>3</number>
+                       </property>
+                       <property name="leftMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="topMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="rightMargin">
+                        <number>0</number>
+                       </property>
+                       <property name="bottomMargin">
+                        <number>0</number>
+                       </property>
+                       <item alignment="Qt::AlignTop">
+                        <widget class="QFrame" name="frame_24">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_14">
+                          <property name="spacing">
+                           <number>0</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>8</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item alignment="Qt::AlignHCenter">
+                           <widget class="QLabel" name="photoDirEcole">
+                            <property name="minimumSize">
+                             <size>
+                              <width>120</width>
+                              <height>120</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>120</width>
+                              <height>120</height>
+                             </size>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                            <property name="pixmap">
+                             <pixmap resource="ressources.qrc">:/images/images/manager.png</pixmap>
+                            </property>
+                            <property name="scaledContents">
+                             <bool>true</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item alignment="Qt::AlignHCenter">
+                           <widget class="QLabel" name="mailDirEcole">
+                            <property name="minimumSize">
+                             <size>
+                              <width>0</width>
+                              <height>35</height>
+                             </size>
+                            </property>
+                            <property name="maximumSize">
+                             <size>
+                              <width>16777215</width>
+                              <height>35</height>
+                             </size>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Mail utilisateur</string>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QFrame" name="subinfo2">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QVBoxLayout" name="verticalLayout_20">
+                          <property name="spacing">
+                           <number>3</number>
+                          </property>
+                          <property name="leftMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="topMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="rightMargin">
+                           <number>0</number>
+                          </property>
+                          <property name="bottomMargin">
+                           <number>0</number>
+                          </property>
+                          <item>
+                           <widget class="QFrame" name="frame_39">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_23">
+                             <item>
+                              <widget class="QLabel" name="label_17">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
+                               <property name="text">
+                                <string>Nom et prénom(s) </string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="nomdirEcole">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string>TextLabel</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="frame_26">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_30">
+                             <item>
+                              <widget class="QLabel" name="label_19">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
+                               <property name="text">
+                                <string>Sexe </string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="sexeDirEcole">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string>TextLabel</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QFrame" name="frame_30">
+                            <property name="frameShape">
+                             <enum>QFrame::StyledPanel</enum>
+                            </property>
+                            <property name="frameShadow">
+                             <enum>QFrame::Raised</enum>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_31">
+                             <item>
+                              <widget class="QLabel" name="label_39">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
+                               <property name="text">
+                                <string>Tel :</string>
+                               </property>
+                              </widget>
+                             </item>
+                             <item>
+                              <widget class="QLabel" name="telDirEcole">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
+                               <property name="text">
+                                <string>TextLabel</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="pushButton_11">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                          </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="text">
                           <string>Modifier</string>
@@ -1208,7 +1642,7 @@ background:rgb(11, 39, 33)
                         </widget>
                        </item>
                        <item>
-                        <widget class="QFrame" name="frame_14">
+                        <widget class="QFrame" name="subinfo3">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -1247,8 +1681,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(99, 99, 99)</string>
+                               </property>
                                <property name="text">
-                                <string>Nom et Prénom(s):</string>
+                                <string>Nom et Prénom(s)</string>
                                </property>
                               </widget>
                              </item>
@@ -1275,7 +1712,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_13">
+                            <layout class="QVBoxLayout" name="verticalLayout_25">
                              <item>
                               <widget class="QLabel" name="label_13">
                                <property name="font">
@@ -1283,8 +1720,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(99, 99, 99)</string>
+                               </property>
                                <property name="text">
-                                <string>Sexe :</string>
+                                <string>Sexe </string>
                                </property>
                               </widget>
                              </item>
@@ -1316,7 +1756,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_9">
+                            <layout class="QVBoxLayout" name="verticalLayout_26">
                              <item>
                               <widget class="QLabel" name="label_37">
                                <property name="font">
@@ -1324,13 +1764,21 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(99, 99, 99)</string>
+                               </property>
                                <property name="text">
-                                <string>Tel :</string>
+                                <string>Tel </string>
                                </property>
                               </widget>
                              </item>
                              <item>
                               <widget class="QLabel" name="telProf">
+                               <property name="font">
+                                <font>
+                                 <pointsize>12</pointsize>
+                                </font>
+                               </property>
                                <property name="text">
                                 <string>TextLabel</string>
                                </property>
@@ -1355,8 +1803,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(99, 99, 99)</string>
+                               </property>
                                <property name="text">
-                                <string>Département:</string>
+                                <string>Département</string>
                                </property>
                               </widget>
                              </item>
@@ -1385,274 +1836,8 @@ background:rgb(11, 39, 33)
                            <pointsize>12</pointsize>
                           </font>
                          </property>
-                         <property name="text">
-                          <string>Modifier</string>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                  <widget class="QWidget" name="DirEcole">
-                   <attribute name="title">
-                    <string>Directeur de l'école</string>
-                   </attribute>
-                   <layout class="QHBoxLayout" name="horizontalLayout_11">
-                    <item alignment="Qt::AlignTop">
-                     <widget class="QFrame" name="frame_23">
-                      <property name="minimumSize">
-                       <size>
-                        <width>230</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>230</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="frameShape">
-                       <enum>QFrame::StyledPanel</enum>
-                      </property>
-                      <property name="frameShadow">
-                       <enum>QFrame::Raised</enum>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_13">
-                       <property name="spacing">
-                        <number>3</number>
-                       </property>
-                       <property name="leftMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="topMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="rightMargin">
-                        <number>0</number>
-                       </property>
-                       <property name="bottomMargin">
-                        <number>0</number>
-                       </property>
-                       <item alignment="Qt::AlignTop">
-                        <widget class="QFrame" name="frame_24">
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_14">
-                          <property name="spacing">
-                           <number>0</number>
-                          </property>
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>8</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>0</number>
-                          </property>
-                          <item alignment="Qt::AlignHCenter">
-                           <widget class="QLabel" name="photoDirEcole">
-                            <property name="minimumSize">
-                             <size>
-                              <width>120</width>
-                              <height>120</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>120</width>
-                              <height>120</height>
-                             </size>
-                            </property>
-                            <property name="text">
-                             <string/>
-                            </property>
-                            <property name="pixmap">
-                             <pixmap resource="ressources.qrc">:/images/images/manager.png</pixmap>
-                            </property>
-                            <property name="scaledContents">
-                             <bool>true</bool>
-                            </property>
-                           </widget>
-                          </item>
-                          <item alignment="Qt::AlignHCenter">
-                           <widget class="QLabel" name="mailDirEcole">
-                            <property name="minimumSize">
-                             <size>
-                              <width>0</width>
-                              <height>35</height>
-                             </size>
-                            </property>
-                            <property name="maximumSize">
-                             <size>
-                              <width>16777215</width>
-                              <height>35</height>
-                             </size>
-                            </property>
-                            <property name="font">
-                             <font>
-                              <pointsize>12</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Mail utilisateur</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QFrame" name="frame_25">
-                         <property name="frameShape">
-                          <enum>QFrame::StyledPanel</enum>
-                         </property>
-                         <property name="frameShadow">
-                          <enum>QFrame::Raised</enum>
-                         </property>
-                         <layout class="QVBoxLayout" name="verticalLayout_20">
-                          <property name="spacing">
-                           <number>3</number>
-                          </property>
-                          <property name="leftMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="topMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="rightMargin">
-                           <number>0</number>
-                          </property>
-                          <property name="bottomMargin">
-                           <number>0</number>
-                          </property>
-                          <item>
-                           <widget class="QFrame" name="frame_39">
-                            <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
-                            </property>
-                            <property name="frameShadow">
-                             <enum>QFrame::Raised</enum>
-                            </property>
-                            <layout class="QVBoxLayout" name="verticalLayout_23">
-                             <item>
-                              <widget class="QLabel" name="label_17">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Nom et prénom(s) :</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="nomdirEcole">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>TextLabel</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QFrame" name="frame_26">
-                            <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
-                            </property>
-                            <property name="frameShadow">
-                             <enum>QFrame::Raised</enum>
-                            </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_15">
-                             <item>
-                              <widget class="QLabel" name="label_19">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Sexe :</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="sexeDirEcole">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>TextLabel</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                          <item>
-                           <widget class="QFrame" name="frame_30">
-                            <property name="frameShape">
-                             <enum>QFrame::StyledPanel</enum>
-                            </property>
-                            <property name="frameShadow">
-                             <enum>QFrame::Raised</enum>
-                            </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_12">
-                             <item>
-                              <widget class="QLabel" name="label_39">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>Tel :</string>
-                               </property>
-                              </widget>
-                             </item>
-                             <item>
-                              <widget class="QLabel" name="telDirEcole">
-                               <property name="font">
-                                <font>
-                                 <pointsize>12</pointsize>
-                                </font>
-                               </property>
-                               <property name="text">
-                                <string>TextLabel</string>
-                               </property>
-                              </widget>
-                             </item>
-                            </layout>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="pushButton_11">
-                         <property name="font">
-                          <font>
-                           <pointsize>12</pointsize>
-                          </font>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
                          </property>
                          <property name="text">
                           <string>Modifier</string>
@@ -1768,16 +1953,16 @@ background:rgb(11, 39, 33)
                      </widget>
                     </item>
                     <item alignment="Qt::AlignTop">
-                     <widget class="QFrame" name="dirInfo">
+                     <widget class="QFrame" name="dirEtudeInfo">
                       <property name="minimumSize">
                        <size>
-                        <width>230</width>
+                        <width>300</width>
                         <height>0</height>
                        </size>
                       </property>
                       <property name="maximumSize">
                        <size>
-                        <width>230</width>
+                        <width>300</width>
                         <height>16777215</height>
                        </size>
                       </property>
@@ -1850,7 +2035,7 @@ background:rgb(11, 39, 33)
                            </widget>
                           </item>
                           <item alignment="Qt::AlignHCenter">
-                           <widget class="QLabel" name="mailDir">
+                           <widget class="QLabel" name="mailDirEtude">
                             <property name="minimumSize">
                              <size>
                               <width>0</width>
@@ -1877,7 +2062,7 @@ background:rgb(11, 39, 33)
                         </widget>
                        </item>
                        <item>
-                        <widget class="QFrame" name="frame_21">
+                        <widget class="QFrame" name="subinfo4">
                          <property name="frameShape">
                           <enum>QFrame::StyledPanel</enum>
                          </property>
@@ -1916,8 +2101,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(99, 99, 99)</string>
+                               </property>
                                <property name="text">
-                                <string>Nom et prénom(s) :</string>
+                                <string>Nom et prénom(s)</string>
                                </property>
                               </widget>
                              </item>
@@ -1944,21 +2132,24 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_19">
+                            <layout class="QVBoxLayout" name="verticalLayout_27">
                              <item>
-                              <widget class="QLabel" name="sexeDir">
+                              <widget class="QLabel" name="label_24">
                                <property name="font">
                                 <font>
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
                                <property name="text">
-                                <string>Sexe :</string>
+                                <string>Sexe</string>
                                </property>
                               </widget>
                              </item>
                              <item>
-                              <widget class="QLabel" name="label_24">
+                              <widget class="QLabel" name="sexeDir">
                                <property name="font">
                                 <font>
                                  <pointsize>12</pointsize>
@@ -1980,7 +2171,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_18">
+                            <layout class="QVBoxLayout" name="verticalLayout_29">
                              <item>
                               <widget class="QLabel" name="label_25">
                                <property name="font">
@@ -1988,8 +2179,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
                                <property name="text">
-                                <string>Tel :</string>
+                                <string>Tel </string>
                                </property>
                               </widget>
                              </item>
@@ -2016,7 +2210,7 @@ background:rgb(11, 39, 33)
                             <property name="frameShadow">
                              <enum>QFrame::Raised</enum>
                             </property>
-                            <layout class="QHBoxLayout" name="horizontalLayout_17">
+                            <layout class="QVBoxLayout" name="verticalLayout_28">
                              <item>
                               <widget class="QLabel" name="label_27">
                                <property name="font">
@@ -2024,8 +2218,11 @@ background:rgb(11, 39, 33)
                                  <pointsize>12</pointsize>
                                 </font>
                                </property>
+                               <property name="styleSheet">
+                                <string notr="true">color:rgb(90,90,90)</string>
+                               </property>
                                <property name="text">
-                                <string>Parcours :</string>
+                                <string>Cycle</string>
                                </property>
                               </widget>
                              </item>
